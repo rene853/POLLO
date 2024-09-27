@@ -1,0 +1,268 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff007f, #7f00ff, #00ff7f, #ff7f00);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: white;
+}
+
+button {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+}
+
+.main-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.productos {
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 2%;
+    overflow-y: auto;
+}
+
+.producto {
+    padding: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+}
+
+.producto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.pedido-actual {
+    width: 30%; /* Aumentar el ancho para darle más espacio */
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 30px; /* Aumentar el padding para más espacio */
+    border-radius: 10px;
+    margin-left: 10px;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 1.5rem; /* Aumentar el tamaño de fuente general */
+}
+
+.pedido-actual h2 {
+    text-align: center;
+    font-size: 2.5rem; /* Aumentar el tamaño del título */
+    color: #ff007f; /* Cambiar color para destacar el total */
+}
+
+
+.ventana-emergente {
+    display: none;
+    position: absolute;
+    top: 0; /* Alinea la ventana en la parte superior */
+    left: 50%;
+    right: 10%;
+      transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 10;
+    width: 25vw;
+    max-height: 80vh; /* Limita la altura máxima de la ventana emergente */
+    overflow-y: auto; /* Agrega scroll vertical si el contenido excede la altura máxima */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.ventana-emergente p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.botones-dinamicos {
+    width: 30%;
+    padding: 2%;
+    overflow-y: scroll;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+}
+
+.botones-dinamicos button {
+    padding: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.botones-dinamicos button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#contador, #total {
+    font-size: 3rem; /* Hacer el contador y total más grandes */
+    font-weight: bold; /* Resaltar el texto */
+    color: #ff007f; /* Cambiar color para mejor visibilidad */
+}
+
+
+/* Estilo para la ventana de ventas acumuladas */
+.registros {
+    display: none; /* Asegúrate de que esto esté presente si no quieres que se muestre por defecto */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    max-height: 80vh; /* Altura máxima para permitir el scroll */
+    overflow-y: auto; /* Permitir desplazamiento vertical */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para el total de ventas */
+#total-ventas {
+  
+    font-size: 2rem; /* Aumentar el tamaño de la fuente */
+    font-weight: bold; /* Hacer la fuente más gruesa */
+    color: #ff007f; /* Cambiar el color a un tono llamativo */
+    margin-bottom: 20px; /* Espacio debajo del total */
+}
+
+/* Estilo para los detalles de las ventas */
+#detalles-ventas p {
+    font-size: 1.2rem; /* Tamaño de texto más grande para detalles */
+    margin: 10px 0; /* Espaciado entre los elementos de la lista */
+    line-height: 1.5; /* Mejora la legibilidad */
+}
+/* Estilo para el botón de cerrar */
+#cerrar-registros {
+    padding: 10px 20px; /* Espaciado para el botón */
+    font-size: 1.2rem; /* Tamaño de la fuente del botón */
+    background-color: #ff007f; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero */
+    transition: background-color 0.3s; /* Efecto de transición */
+}
+
+#cerrar-registros:hover {
+    background-color: #e6006d; /* Color del botón al pasar el ratón */
+}
+
+#contador-ventas {
+    font-size: 3rem; /* Tamaño más grande para el contador principal */
+    font-weight: bold;
+    color: #ff007f; /* Color atractivo */
+    text-align: center;
+    margin-bottom: 20px; /* Espaciado debajo del contador */
+}
+#ventasAcumuladas {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 10;
+    width: 300px; /* Ancho del contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}

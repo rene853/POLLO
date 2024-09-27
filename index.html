@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+    <!-- Otras inclusiones de CSS o JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+  <script src="xlsx.full.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación de Comida Rápida</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CRAZY CHIKEN</h1>
+            <button id="loginButton" onclick="mostrarLogin()">Iniciar Sesión</button>
+        </header>
+        
+        <div class="main-content">
+            <div class="productos">
+                
+                <button class="producto" onclick="agregarAlPedido('Pollo Frito', 10)">Pollo Frito - $10</button>
+                <button class="producto" onclick="agregarAlPedido('Alitas', 8)">Alitas - $8</button>
+                <button class="producto" onclick="agregarAlPedido('Hamburguesa', 12)">Hamburguesa - $12</button>
+                <button class="producto" onclick="agregarAlPedido('Papas Fritas', 5)">Papas Fritas - $5</button>
+                <button class="producto" onclick="agregarAlPedido('Ensalada', 7)">Ensalada - $7</button>
+                <button class="producto" onclick="agregarAlPedido('Bebida', 3)">Bebida - $3</button>
+                <button class="producto" onclick="agregarAlPedido('Combo Familiar', 25)">Combo Familiar - $25</button>
+                <button class="producto" onclick="agregarAlPedido('Taco de Pollo', 4)">Taco de Pollo - $4</button>
+                <button class="producto" onclick="agregarAlPedido('Sopa de Pollo', 6)">Sopa de Pollo - $6</button>
+              
+            </div>
+            
+            <div class="pedido-actual">
+                <h2>Pedido Actual</h2>
+                <ul id="lista-pedido"></ul>
+                <p>Total: $<span id="total">0.00</span></p>
+                <p>Contador: <span id="contador">0</span></p>
+                <button onclick="enviarPedido()">Enviar Pedido</button>
+                <button onclick="eliminarUltimo()">Eliminar Último</button>
+            </div>
+           
+         
+          
+          
+          
+
+<div id="registros" class="ventana-emergente">
+   
+    <div id="total-ventas"></div>
+ <button onclick="cerrarRegistros()">
+                  Ocultar Ventana</button>
+                <button onclick="descargarVentasEnExcel()"
+                        >Descargar Ventas en Excel</button>
+            <h2>Ventas Acumuladas</h2>
+                <p id="total-ventas"></p>
+                <div id="detalles-ventas" style="overflow-y: auto; max-height: 60vh;"></div>
+        
+          <section id="registros" style="display:none;">
+              
+               
+            </section>
+          
+    </div>      
+          
+          
+          
+          
+            <div id="botones-pedidos" class="botones-dinamicos"></div>
+        </div>
+        
+        <div id="ventanaEmergente" class="ventana-emergente">
+            <button onclick="cerrarVentana()">Cerrar</button>
+            <div id="detalles-pedido"></div>
+          
+        </div>
+
+        <div id="loginForm" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="cerrarLogin()">&times;</span>
+                <h2>Iniciar Sesión</h2>
+                <input type="text" id="usuario" placeholder="Usuario">
+                <input type="password" id="password" placeholder="Contraseña">
+                <button onclick="validarLogin()">Iniciar</button>
+                <p id="mensaje-error" style="display:none; color:red;">Usuario o contraseña incorrectos</p>
+            </div>
+        </div>
+
+        
+        </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+ <h1>ren@by</h1>
