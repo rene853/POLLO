@@ -395,35 +395,7 @@ function cerrarRegistros() {
     document.getElementById("registros").style.display = "none";
 }
 
-function descargarHistorialVentas() {
-    // Crear un array para almacenar las filas del archivo Excel
-    const historial = [];
-    
-    // Agregar encabezados al historial
-    historial.push(["ID", "Fecha", "Usuario", "Total Venta", "Detalles"]);
 
-    // Iterar sobre las fechas en la base de datos
-    for (const fecha in baseDeDatos) {
-        baseDeDatos[fecha].forEach(venta => {
-            const fila = [
-                venta.id,
-                venta.fecha,
-                venta.usuario,
-                venta.total_venta,
-                venta.detalles
-            ];
-            historial.push(fila);
-        });
-    }
-
-    // Convertir el historial a una hoja de Excel
-    const ws = XLSX.utils.aoa_to_sheet(historial);
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Historial Ventas");
-
-    // Descargar el archivo Excel
-    XLSX.writeFile(wb, "historial_ventas.xlsx");
-}
 
 function descargarVentasEnExcel() {
     // Crear un array para almacenar las filas del archivo Excel
@@ -596,3 +568,4 @@ function confirmarSeleccion() {
     // Ocultar el selector después de confirmar la selección
     document.getElementById("selector-presa").style.display = "none";
 }
+
