@@ -266,3 +266,80 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
+
+
+#selector-presa {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9; /* Fondo claro */
+    border: 1px solid #ccc; /* Borde suave */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para efecto de elevación */
+    font-family: 'Arial', sans-serif; /* Tipografía simple y legible */
+    width: 250px; /* Ancho fijo */
+    z-index: 100; /* Asegurarse que se muestre sobre otros elementos */
+}
+
+#selector-presa h3 {
+    font-size: 18px; /* Tamaño de texto para el título */
+    margin-bottom: 15px; /* Espacio debajo del título */
+    color: #333; /* Color de texto oscuro */
+    text-align: center; /* Centrar el título */
+}
+
+#selector-presa label {
+    display: block; /* Cada label en una nueva línea */
+    font-size: 16px; /* Tamaño de texto para las opciones */
+    margin-bottom: 10px; /* Espacio entre cada opción */
+    color: #555; /* Color de texto gris suave */
+    cursor: pointer; /* Cambia el cursor al pasar sobre las opciones */
+}
+
+#selector-presa input[type="checkbox"] {
+    margin-right: 10px; /* Espacio entre checkbox y texto */
+    transform: scale(1.2); /* Aumentar el tamaño de los checkboxes */
+}
+
+#selector-presa button {
+    display: block;
+    width: 100%; /* Ocupa todo el ancho del div */
+    padding: 10px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de texto */
+    color: #fff; /* Texto en blanco */
+    background-color: #28a745; /* Fondo verde para el botón */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados para el botón */
+    cursor: pointer; /* Cursor de mano */
+    transition: background-color 0.3s ease; /* Animación suave para el cambio de color */
+}
+
+#selector-presa button:hover {
+    background-color: #218838; /* Cambio de color en hover */
+}
+
+
+
+
+.boton-pedido {
+    background-color: azul; /* Color por defecto del botón */
+    color: black;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.boton-pedido.entregado {
+    background-color: green; /* Cambia el color del botón a verde */
+    color: white; /* Texto blanco para mejor visibilidad */
+}
+
+
+#confirmacionEliminacion {
+    background-color: red;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}

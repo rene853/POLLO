@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
   
@@ -21,25 +22,42 @@
         <div class="main-content">
             <div class="productos">
                 
-                <button class="producto" onclick="agregarAlPedido('Pollo Frito', 10)">Pollo Frito - $10</button>
-                <button class="producto" onclick="agregarAlPedido('Alitas', 8)">Alitas - $8</button>
-                <button class="producto" onclick="agregarAlPedido('Hamburguesa', 12)">Hamburguesa - $12</button>
-                <button class="producto" onclick="agregarAlPedido('Papas Fritas', 5)">Papas Fritas - $5</button>
-                <button class="producto" onclick="agregarAlPedido('Ensalada', 7)">Ensalada - $7</button>
-                <button class="producto" onclick="agregarAlPedido('Bebida', 3)">Bebida - $3</button>
-                <button class="producto" onclick="agregarAlPedido('Combo Familiar', 25)">Combo Familiar - $25</button>
-                <button class="producto" onclick="agregarAlPedido('Taco de Pollo', 4)">Taco de Pollo - $4</button>
-                <button class="producto" onclick="agregarAlPedido('Sopa de Pollo', 6)">Sopa de Pollo - $6</button>
+                <button class="producto" onclick="mostrarSelector('Pollo Economico', 10, 1, event)","agregarAlPedido('Pollo Economico', 10)"   >Pollo Economico - Bs10</button>
+                <button class="producto" onclick="mostrarSelector('Pollo Doble', 15, 2, event)","agregarAlPedido('Pollo Doble', 15)">Pollo Doble - Bs15</button>
+                <button class="producto" onclick="mostrarSelector('Pollo Triple', 23, 3, event)","agregarAlPedido('Pollo Triple', 23)">Pollo Triple - Bs23</button>
+                <button class="producto" onclick="agregarAlPedido('Refresco MINI ', 5)">Refresco MINI - Bs3</button>
+                <button class="producto" onclick="agregarAlPedido('Refresco POPULAR', 7)">Refresco POPULAR - Bs7</button>
+                <button class="producto" onclick="agregarAlPedido('Refresco 1.5L', 11)">Refresco 1.5L - Bs11 </button>
+                <button class="producto" onclick="agregarAlPedido('Refresco 2L', 14)">Refresco 2L - Bs14</button>
+                <button class="producto" onclick="agregarAlPedido('JUGO AL VALLE', 17)">JUGO AL VALLE - Bs17</button>
+                <button class="producto" onclick="agregarAlPedido('ENERGETICO POWER', 10)">ENERGETICO POWER - Bs10</button>
+             <div id="selector-presa" style="display:none; position:absolute;">
+    <h3>Seleccione sus presas:</h3>
+    <label><input type="checkbox" value="PECHO"> PECHO</label><br>
+    <label><input type="checkbox" value="ALA"> ALA</label><br>
+    <label><input type="checkbox" value="PIERNA"> PIERNA</label><br>
+    <label><input type="checkbox" value="ENTREPIERNA"> ENTREPIERNA</label><br>
+                  
+    <button onclick="confirmarSeleccion()">Confirmar</button>
+</div>
+
+
               
             </div>
             
             <div class="pedido-actual">
                 <h2>Pedido Actual</h2>
                 <ul id="lista-pedido"></ul>
-                <p>Total: $<span id="total">0.00</span></p>
+                <p>Total: Bs<span id="total">0.00</span></p>
                 <p>Contador: <span id="contador">0</span></p>
                 <button onclick="enviarPedido()">Enviar Pedido</button>
                 <button onclick="eliminarUltimo()">Eliminar Último</button>
+           <button class="producto" id="boton-local" onclick="agregarAlPedido1('LOCAL')" atile=>LOCAL</button>
+<button class="producto" id="boton-llevar" onclick="agregarAlPedido1('LLEVAR')">LLEVAR</button>
+
+
+
+
             </div>
            
          
@@ -90,6 +108,18 @@
 
         
         </div>
+  
+<!-- Ventana emergente para editar pedidos -->
+<div id="ventanaEditar" style="display: none;">
+    <h3>Editar Pedido</h3>
+    <ul id="lista-productos"></ul>
+    <button onclick="cerrarVentanaEditar()">Cerrar</button>
+</div>
+
+ 
+  
+
+
 
     <script src="script.js"></script>
 </body>
