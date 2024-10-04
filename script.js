@@ -467,8 +467,19 @@ function descargarVentasEnExcel() {
     // Obtener la fecha actual
     const fechaActual = new Date().toISOString().split('T')[0]; // Formato YYYY-MM-DD
 
-    // Descargar el archivo Excel con la fecha
-    XLSX.writeFile(wb, `historial_ventas_${fechaActual}.xlsx`);
+    // Generar archivo Excel como un Blob
+    const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
+    const blob = new Blob([excelBuffer], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+
+    // Crear un enlace para descargar el archivo
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `historial_ventas_${fechaActual}.xlsx`; // Nombre del archivo a descargar
+    document.body.appendChild(a);
+    a.click(); // Simula el clic para iniciar la descarga
+    document.body.removeChild(a); // Elimina el enlace
+    URL.revokeObjectURL(url); // Libera la memoria del objeto URL
 }
 
 
@@ -568,4 +579,3 @@ function confirmarSeleccion() {
     // Ocultar el selector después de confirmar la selección
     document.getElementById("selector-presa").style.display = "none";
 }
-
